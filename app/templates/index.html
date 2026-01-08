@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Portfolio</title>
+</head>
+<body>
+
+    <h1>Personal Portfolio</h1>
+    <p>환영합니다 👋</p>
+
+    <hr>
+
+    <!-- 공통 메뉴 -->
+    <a href="/products">상품 보기</a><br>
+    <a href="/login">일반 로그인</a><br>
+    <a href="/admin/login">관리자 로그인</a><br>
+
+    <!-- 관리자 전용 메뉴 -->
+    {% if session.get("role") == "admin" %}
+        <br>
+        <a href="/admin/add-product">상품 등록 (관리자)</a>
+    {% endif %}
+
+</body>
+</html>
