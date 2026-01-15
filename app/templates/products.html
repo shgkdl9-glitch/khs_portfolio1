@@ -9,12 +9,19 @@
 <h2>판매 상품</h2>
 
 {% for p in products %}
-    <div>
+    <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
         <h3>{{ p.name }}</h3>
         <p>{{ p.price }}원</p>
         <p>{{ p.description }}</p>
+
+        <!-- ✅ 결제 버튼 추가 -->
+        <form action="/payment/create" method="post">
+            <input type="hidden" name="product_id" value="{{ p.id }}">
+            <button type="submit">결제하기</button>
+        </form>
     </div>
 {% endfor %}
+
 
 </body>
 </html>
